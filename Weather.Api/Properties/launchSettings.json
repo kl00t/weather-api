@@ -1,0 +1,20 @@
+﻿{
+  "profiles": {
+    "Acme.Weather.Api": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:7156;http://localhost:5156",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "OpenWeatherApiOptions__RetryDelay": "1",
+        "OpenWeatherApiOptions__RetryCount": "3",
+        "OpenWeatherApiOptions__BaseAddress": "https://api.openweathermap.org/data/2.5/",
+        "OpenWeatherApiOptions__OpenWeatherMapApiKey": "a71e9fe235137032526e420f342c3984",
+        "OpenWeatherApiOptions__ClientName": "openweathermap",
+        "OpenWeatherApiOptions__Units": "metric",
+        "OpenWeatherApiOptions__Language": "en"
+      }
+    }
+  }
+}
