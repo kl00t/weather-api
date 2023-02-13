@@ -11,6 +11,8 @@ var logger = new LoggerConfiguration()
 builder.Logging.AddSerilog(logger);
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<ApiKeyAuthenticationFilter>();
+
 builder.Services.AddWeatherService();
 builder.Services.AddResilienceStrategy(builder.Configuration);
 builder.Services.AddOpenWeatherMapApiClient(builder.Configuration);
@@ -20,8 +22,6 @@ var app = builder.Build();
 app.Logger.LogInformation("The Weather.Api has started at {Date}.", DateTime.UtcNow);
 
 app.UseHttpsRedirection();
-
-app.UseMiddleware<ApiKeyAuthenticationMiddleware>();
 
 app.UseAuthorization();
 

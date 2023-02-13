@@ -1,5 +1,9 @@
 ﻿namespace Weather.Api.Authentication;
 
+/// <summary>
+/// Applies Api Key Authentication via middleware to all requests in the Httpcontext pipeline.
+/// Configured by adding 'app.UseMiddleware<ApiKeyAuthenticationMiddleware>();' to the Program.cs
+/// </summary>
 public class ApiKeyAuthenticationMiddleware
 {
     private readonly RequestDelegate _next;
