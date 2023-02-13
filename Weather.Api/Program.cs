@@ -1,5 +1,6 @@
 using Acme.Weather.Api.Extensions;
 using Serilog;
+using Weather.Api.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +17,11 @@ builder.Services.AddOpenWeatherMapApiClient(builder.Configuration);
 
 var app = builder.Build();
 
-app.Logger.LogInformation("The Acme.Weather.Api has started at {Date}.", DateTime.UtcNow);
+app.Logger.LogInformation("The Weather.Api has started at {Date}.", DateTime.UtcNow);
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ApiKeyAuthenticationMiddleware>();
 
 app.UseAuthorization();
 

@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "Acme.Weather.Api": {
+    "Weather.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,
