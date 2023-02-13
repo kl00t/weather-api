@@ -3,6 +3,7 @@
 /// <summary>
 /// Applies Api Key Authentication via middleware to all requests in the Httpcontext pipeline.
 /// Configured by adding 'app.UseMiddleware<ApiKeyAuthenticationMiddleware>();' to the Program.cs
+/// CAN be applied to minimal api.
 /// </summary>
 public class ApiKeyAuthenticationMiddleware
 {

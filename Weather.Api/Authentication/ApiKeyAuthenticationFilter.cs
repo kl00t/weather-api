@@ -6,6 +6,7 @@ namespace Weather.Api.Authentication;
 /// <summary>
 /// Api Key Authentication Attribute Filter.
 /// Applied on a controller to authentication that the api key is in the header and is valid.
+/// CANNOT be applied to minimal api.
 /// </summary>
 [AttributeUsage(AttributeTargets.All)]
 public class ApiKeyAuthenticationFilter : Attribute, IAuthorizationFilter
