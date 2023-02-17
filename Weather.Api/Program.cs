@@ -1,9 +1,17 @@
 using Acme.Weather.Api.Extensions;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Weather.Api;
 using Weather.Api.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services
+    .AddOptions<ExampleOptions>()
+    .Bind(builder.Configuration.GetSection(ExampleOptions.SectionName))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
 
 builder.Logging.ClearProviders();
 var logger = new LoggerConfiguration()
@@ -12,7 +20,7 @@ var logger = new LoggerConfiguration()
 builder.Logging.AddSerilog(logger);
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<ApiKeyAuthenticationFilter>();
+//builder.Services.AddScoped<ApiKeyAuthenticationFilter>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -63,5 +71,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("hello", (IOptions<ExampleOptions> opt) => opt.Value);
 
 app.Run();
